@@ -21,7 +21,9 @@ a {
 }
 
 img {
+  display: block;
   max-width: 100%;
+  border-radius: 5px;
 }
 
 /* Layout Geral */
@@ -89,15 +91,28 @@ img {
 .sidenav ul li a:hover {
   background: #b07dfb;
 }
-
+/* Conteudo */
 .content {
   grid-area: content;
 }
-
+/* Anuncios */
 .anuncios {
   grid-area: anuncios;
+  display: grid;
+  align-content: start;
+  background: #fafbfc;
+  padding: 30px;
+  gap: 30px;
 }
 
+/* Footer */
 .footer {
   grid-area: footer;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+}
+
+.footer p{
+    color: #fff;
+    padding: 30px;
+    text-align: center;
 }
