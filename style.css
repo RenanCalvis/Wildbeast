@@ -27,6 +27,15 @@ img {
   border-radius: 5px;
 }
 
+@keyframes seta {
+  from {
+    right: 30px;
+  }
+  to {
+    right: 20px;
+  }
+}
+
 /* Layout Geral */
 
 .estrutura {
@@ -226,4 +235,61 @@ p {
   color: #fff;
   padding: 30px;
   text-align: center;
+}
+/*Responsiva*/
+@media (max-width: 1200px) {
+  .estrutura {
+    grid-template-areas:
+      "header header header"
+      "sidenav content content"
+      "sidenav anuncios anuncios"
+      "footer footer footer";
+  }
+}
+
+@media (max-width: 750px) {
+  .estrutura {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "sidenav"
+      "content"
+      "anuncios"
+      "footer";
+  }
+  .header {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+  .logo {
+    margin-bottom: 20px;
+  }
+  .header nav ul {
+    gap: 15px;
+  }
+
+  .sidenav {
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .sidenav::after {
+    content: "→";
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    color: rgba(0, 0, 0, 0.3);
+    animation: seta .5s ease-in 0s infinite alternate;
+  }
+  .sidenav ul {
+    display: flex;
+    gap: 30px;
+  }
+  .sidenav ul li {
+    flex: 1 0 16px;
+  }
+  .sidenav ul li a {
+    margin: 0;
+  }
 }
