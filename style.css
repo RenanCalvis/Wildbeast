@@ -22,8 +22,7 @@ a {
 
 img {
   display: block;
-  max-width: 100%;
-  width: 100%;
+  width: 100%; /* Evitar utilizar quando não tiver imgs contidas por um container que segure seu tamanho*/
   border-radius: 5px;
 }
 
@@ -223,6 +222,10 @@ p {
   background: #fafbfc;
   padding: 30px;
   gap: 30px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  ); /* auto-fit = Coloque o numero de colunas, no minino de 150px e no max 1fr */
 }
 
 /* Footer */
@@ -249,7 +252,7 @@ p {
 
 @media (max-width: 750px) {
   .estrutura {
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
     grid-template-areas:
       "header"
       "sidenav"
@@ -280,7 +283,7 @@ p {
     top: 5px;
     right: 30px;
     color: rgba(0, 0, 0, 0.3);
-    animation: seta .5s ease-in 0s infinite alternate;
+    animation: seta 0.5s ease-in 0s infinite alternate;
   }
   .sidenav ul {
     display: flex;
@@ -291,5 +294,11 @@ p {
   }
   .sidenav ul li a {
     margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: auto; /* 1fr */
   }
 }
